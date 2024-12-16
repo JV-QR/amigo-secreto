@@ -4,6 +4,17 @@ function adicionar(id) {
     //recuperar o valor nome do amigo
     let amigo = document.getElementById('nome-amigo').value;
 
+    if (amigo == '') {
+        alert('Infome o nome do amigo!');
+        return;
+    }
+
+    if (listaAmigos.includes(amigo)) {
+        alert('Nome já adicionado!');
+        document.getElementById('nome-amigo').value = '';
+        return;
+    }
+
     //adicionar ele na lista de amigos incluidos.
     let lista = document.getElementById('lista-amigos');
 
@@ -23,9 +34,15 @@ function adicionar(id) {
 
 
 function sortear() {
+    if(listaAmigos.length < 4) {
+        alert('Quantidade de participantes insuficientes! Por favor, adicione no mínimo 4 participantes!')
+        return;
+    }
+
     embaralha(listaAmigos);
 
     let sorteio = document.getElementById('lista-sorteio');
+
     for (let i = 0; i < listaAmigos.length; i++) {
 
         if(i == listaAmigos.length - 1) {
