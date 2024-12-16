@@ -2,12 +2,13 @@ let listaAmigos = [];
 
 function adicionar(id) {
     //recuperar o valor nome do amigo
-    let amigo = document.getElementById('nome-amigo').value;
+    let amigo = document.getElementById('nome-amigo').value.toLowerCase();
 
     if (amigo == '') {
         alert('Infome o nome do amigo!');
         return;
     }
+
 
     if (listaAmigos.includes(amigo)) {
         alert('Nome já adicionado!');
